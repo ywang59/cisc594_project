@@ -1,0 +1,312 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AddFlightDetailsToExcel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="details" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1160,3954.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="737.6,3889.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="696,3796.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+      <TryCatch.Try>
+        <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="659.2,3565.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="C:\Users\leyang1\Desktop\CISC593.xlsx">
+          <ueab:ExcelApplicationCard.Body>
+            <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="625.6,3296" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="584,3203.2" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_3" Range="[Excel.Sheet(&quot;Sheet1&quot;).Range(&quot;&quot;)]" SaveAfterEachRow="False">
+                  <ueab:ExcelForEachRowX.Body>
+                    <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                      <ActivityAction.Argument1>
+                        <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="CurrentRow" />
+                      </ActivityAction.Argument1>
+                      <ActivityAction.Argument2>
+                        <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                      </ActivityAction.Argument2>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="550.4,3018.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: New York to Beijing | Google Flights" sap:VirtualizedContainerService.HintSize="508.8,2925.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1" WindowResize="Maximize">
+                          <uix:NApplicationCard.Body>
+                            <ActivityAction x:TypeArguments="x:Object">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="475.2,2708.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="timeRange" />
+                                  <Variable x:TypeArguments="x:String" Name="flightProvider" />
+                                  <Variable x:TypeArguments="x:String" Name="timeDuration" />
+                                  <Variable x:TypeArguments="x:String" Name="stopCount" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'Best flights'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTMwag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="319, 573, 1280, 30" FriendlyName="'Best flights'" FullSelectorArgument="&lt;webctrl tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H3' type='' aaname='Best flights' check:text='Best flights' /&gt;" Guid="832d9f9b-34ea-4b43-a61f-8f6fd2fc174f" ImageBase64="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" InformativeScreenshot="fed4b6d2d2078442c7b5bdb371dbf227.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[CurrentRow.Current(0)]" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Fri, Dec 1'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="433.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Text="[CurrentRow.Current(0)]" Version="V1">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="1194, 365, 320, 68" ElementType="InputBox" FriendlyName="'Fri, Dec 1'" FullSelectorArgument="&lt;webctrl parentid='ow237' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ow237' tag='INPUT' type='text' aaname='' /&gt;" Guid="ce2885de-250d-4e03-918d-730b71ddbfbb" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUQAAABICAYAAACOX4wJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARVSURBVHhe7dxPSxtpHMBxX8oWfBVCPPZQr4LBgz10odJlCwWhS6Doocv2IAGLl+agBEqUxZWFFUIIlDSUdBAysEQpTBBiCKQUfA2/zkx+Ex+TxyHrnzSZ/R4+B+efk4NfnmeeiTM/PZgVAMCszDx+sioAgFVhhAgAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgLr7IC7titO5kK+dmmRt+wFgQhlBXJejMz9k3+LUJWecbJV6K9UgiF5JMrb9cXbqlt95Ie0zT6p/bsrTlOWcHyWVlkyuJI7XldPiuv0YAFPFEkT/D/xzXRyrA9kwTr5zURC9hvE7G9IMAhtsP6vJ9orlvLGZl8UXm7L/0ZN2V+/J1ySIQCJYgjjCKPC+aBCHA7MgG3/7EQpjeYOR553ZFUcj2D6pyX7ZI4hAgtwsiJmSNIMwHBf8UDV0tBSdp9E4u/mU2R6Yedn+1IuRs5Me2j+3VpDqSSvcHwqm2fnfZG7guOA6a/manBqPB9peXQ6zKwPH2fwuOX/q/nxxvvdz7P0CmDa3C2I0bex0pX3uT2fD/fcVRN8fld4o8Xj3SujmXun9dDxxyv/IYbkupzrNbh6Z15qXTFGj2T/Wn5KHn6Prh3aUKBoIIpAotwvit5YcvV4Y2H+PQbRdO7Up5fNgW0U2HhnHpqLP05D8km6L7juYdpsLNCsFcYMonvvXiLaNgiACiWIJ4nWMUEZhcQuWKekYgmjey1YtPMfdG55GR6PB6tbAz9s65TVkP7T8UW5D9l9c3R6LIAKJYgnidavMxgpz/xnibv9Cl8YbxP4UOIaz0zs2dxz87MnhM/Oat0AQgUS55aLKDwqice1eELviHhUkn7d782vv2F4QR/h8oyKIQKJMVxAtiyrRCDEaBcZhhAggzhQFMa1BuxD3/eXzwsW9Rrjt66d3lueZV8U9Q8y8r4nzuSK5/xJLgggkypiCuCDLz36Rpz+n46N1bWBWJKsvQQ+9mB18dzp8baYl5YEV74evS+K6B7IWrShH9z20yuxfI3hNh1Vm4H9tTEEccdSogRn66l70vuOXimQtX91b9s8Lp9LBgtBxRQ73SlL9Vxdb/Phdvo5jvId47olTPOA9RAB9kxnEAW0/kOX8uizG/HOHhy8HvqnSaYlbfGv5hxDD31RpntQk/3LwfcoREEQgUYwg3qOlA3GD+BiLIQAwacYSxOd/Bc//ulLdGl7MAIBJMYYgpuVN0ZO2Pzpctu4HgMkwnikzAEwBgggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKAIIgAogggAiiACgCKIAKBmHj9ZFQDAKiNEAOiZle/x2t11tiJsLAAAAABJRU5ErkJggg==" InformativeScreenshot="6e754a3163256c4da53058acf34b2500.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="FuzzySelector, Image" WaitForReadyArgument="Complete" />
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,292" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DelayAfter="3" DisplayName="Keyboard Shortcuts 'Fri, Dec 1'" sap:VirtualizedContainerService.HintSize="333.6,199.2" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Shortcuts="[d(hk)][k(enter)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V1">
+                                        <uix:NKeyboardShortcuts.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="1194, 308, 320, 68" ElementType="InputBox" FriendlyName="'Fri, Dec 1'" FullSelectorArgument="&lt;webctrl idx='3' parentid='ow236' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' parentid='ow236' tag='INPUT' aaname='' /&gt;" Guid="33da32b0-c601-4cef-b278-dd504e0a165b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUQAAABICAYAAACOX4wJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAATFSURBVHhe7dvbbxRVHMDx/as06YsG3jQxaOKTJD4IyBqqbSrIHRqMMSYGwUKBdi3UXgArBgMpLaW1llsrtbUWamnp/Qbqa19/9nfyO5vZ3dmtpd1ld/k+fFJ25uzs7APfzMw5G3nl1RIBAJRIZEdsWQAAywQRALzIpi1RAQBEhWeIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAZsOD+PY778q93geysPS31NTWhY4BgHyUEMS2m52y9OzfjL5vbE44QLLXXt8sPXfuy8zcohw/URU6Jp3P9h6Qyem5lM+cnl1wx9T9Ye97Ed548y05faZGhoZH5H5ff+gYAIUlNIjDj0bdf/Iwx7/5NuEAG8kHUWPa92Ag/pmjYxOy+PQfmVt4KvUNmYOcbbv37JO29lsu0j7Yv/UPho4FUFhCg7jaVWC2+CA+HHks27bvTNh3sqo6Hsu1XnluFD0nPTeNs0b6VtevLtIEESgOzxVEHwYNVEPTJRmfmHaRuFDf6PZrIDQUJ06eSnlvJpmCqOouNLjP6V25atRnlcF9H2z7ULp77rpg6nfQv/patwfHqeqztTIyOu6OpfT8my7+4G73k8cGvbf1fXeFqleJ+lq/H0EEise6gqgxmV98JrPzSy5ksbp6tz9bQdxVWuauzCamZmXf/kPx7dGPSt1tvp6LfnZrW4eM/DXmzk+3B4+l4dMJHw3m7bu90tHZ7T5Tx+qt8GpRDCKIQHFZdxDbO7rcBENwf7aCqJKPrQHr6r7ttumVnx+n2/Xc9Bwvt/zkth08XClPJmecI0ePxcdqUB+tBHRqZl6OVn4e374agggUl9AgpuND6YOoAdl/8Ej8/V62gxg8l/KKPTL2ZEoG/hhOuY32wbpzr8+9bmi86AJ57fqNhHHqxytX3ZVnTex8yr50CCJQXEKDmG6W2c8w+yBqvDRiwWOoXAbRR8lHO4wPln4/DaK/tV8vgggUl3VPqryIIAaP7aP0++Cf0nypJVTVqTNurH6/5zmvdAgiUFwKKohhkypriRJXiAAyKaggNjVfdkHrHxiKPy+sPPaFe5apS2f8cph0Mj1DPFvzXcJjgf+DIALFJSdB1BnfsvJPpWL33pQZ6aBMQayNnXdLZZIXZmsYdV2inrcuoQkev/Tjcrfvy6++dq8zzTLrc1NmmYGXW06CuNp4zwdRoxf86d7j8Ul3ZafbNYzJ79O46UyzjtH1h9db290aQx/Q09Xn4mP9OkT96Z0u3L7Z0SUTK4HU9+r6RdYhAi+vvAyinoOnodJnhp2/9MgnZRWh71M7o7sSfqmii7T11vpAyLKg5F+q6L/1lnktMVQEESguCUHMFj8ZEnYrDAD5IidB1FldvWL7+Vpr6H4AyAc5CWLLlasyOPTQTV6E7QeAfJCTIAJAISCIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgAYgggAhiACgCGIAGAIIgCYyKYtUQEARCWyI7YsAIBlgggAHs8QAcApkf8AEKK7FG044pMAAAAASUVORK5CYII=" InformativeScreenshot="015d1b4130b75c7be551934610527c1f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                        </uix:NKeyboardShortcuts.Target>
+                                      </uix:NKeyboardShortcuts>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                                <uix:NClick ClickType="Single" DisplayName="Click 'Done'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="1526, 999, 44, 25" ElementType="Text" FriendlyName="'Done'" FullSelectorArgument="&lt;webctrl aaname='Done' parentid='ow236' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Done' parentid='ow236' tag='SPAN' type='' check:text='Done' /&gt;" Guid="e5ccec28-e598-42c2-8faa-99059ee0bd19" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAdCAYAAADsMO9vAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAK9SURBVFhH7Vbdb0thGPen+CgbY7MPXbdmraKlw2bTIS2TkbWybLWZj9lKWsq6soTMxcLCkOgSbLa5kBBckOCGC5EsPiKRcUPiI9jdY79H3pPzdp2e7uZYci5+afu8z8fv9z7neU7nxG9P0GyGIUBvGAL0hiFAb0gC6kIJmjvPJCErp4Bs5TupIXaHOm99l4L/B6QUkFtkJ/PKKka+xamIsa71UejyWymB3kgpAJ9q+7GBT7Rpd5Tmm7JZRCTxUTrXE5oEALGRn1Qd6OLz2kP9U871gmYBwOG+V7Ss0EaOSj+duPmFbV2jv6jp9H2yurzcoQWLcsi+YRe1nH1M8dHf7HNy8Cs5a/ZSsaOaGuN3+Rx+gNPTREeuvJPq4LLqI0O0wlbBfDCH5b42CvW/kfyAjASANMjnl7h4FlDI09DNMSBfaHUz8B3wtZ5nHyEANlPWUlqSZyGzvZKJIdZRGaDo9c9cQ50Tuar8nbR+Rzv7Li9eQ20XXkqcMhIgiKAL6EZj/B6TKnVuo6NX3yt+HZfGqGR1DRdtPfdUiUNu15Zmit74SzZ87QPHLszOm/R7xjaRs9ofk7bewd4XXNftPSDZZ9yB9otj3FYU39fzZIqvILI12KMIWJxrniTyXPLbvr+PazafeUSx4R+cE13CnAW7HyhAPjx6ovsifsYzEBkYZ1Joa0f/62l98QgIAXhskjeYqAkB6k5NB9F9Ea9ZQPIWEreVrgOePacUYhhirGS1n1qAyJlMUgDnyTZNAjBguEkQUr8HMp2BdALwO3B8mHNiO4UT44ofZqSgdB1fYufQN8WeUoDWN3G6LeRt6ZW2kBYB8K2oC7MNa7aobKPCARcS7H4oxacUoAaC/vVfKNV7oMxdyzacwScTAQDq1EcGybJqM+cEB6cnmP49MBthCNAbhgC9YQjQG4YAfTFBfwAbiSxSuNuGuQAAAABJRU5ErkJggg==" InformativeScreenshot="8397f4894c87131aadd26adf6b6e9f97.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="FuzzySelector">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="1496, 991, 104, 40" ElementType="Button" FriendlyName="'Done'" FullSelectorArgument="&lt;webctrl aaname='Done' parentid='ow236' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Done' parentid='ow236' tag='BUTTON' type='' check:text='Done' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAsCAYAAACAPl2hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASeSURBVHhe7ZrZbw1RHMf9KZbS2rWlrTZaF7e0llIt0qJB2tsIVVpbF+mltEoTQkIQikTFUqoeJNYHErzwIJLGEomUFxJLLG8//R6ZyZl7f7Pcqplp7nn4pO3cc85Mf597zvnNb2ZYWnomKYYOStgQ45+F5ReHqKz2GFW336XGjl7ae/Uz7e/5SW03f8c1iAFigZggNogRYsXFMBYGJCwwr5jW1XVQ+MJ79mIV5iBmiB1iyMXWjpiEZc9aQKHwJfZCFLGDWCKmXKzNcCxseeUeMcW5EysGDmKK2HIx53AkTM2q/w9izMU+Elth2DC5EygGH8SacyBjKUzJch87aabC1DLoHVbLIysMmyA3kMI9zBKRKGFIM1U26D1wwKX8UcLUUugfuKXRIAx331xHhXdEVkQMwlAy4TopvANOZEcGYV7VBtc0dNLwEQkGEsenUHZ+Ga1vvUUt17+x/eIBOJEd6cJQSeY6uIEmbNLUHEqbuUSQnBHU5WXNLaWGs2/YvvGAXOXXhaH8zzV2A00YfsrHd1/8SIvXNdPIhCQhLdz5wfB5vAA3UcK8rGqYCQOtN35QYWi/+Hz19vjcY+Xqhy4MD9q4xm5gJQzsPPWSJqZmU6CgQr9HxAPCjQfvUVZuiZiBo8aMp5wFa2nz4UfU1vNLtNnX9YWCxZsoPVBIG9pui8/RDgSLNlLjubeG8+DLUR6+RtOyF4nrwT6aX7qDGjpeG9q5DdxECfPyZtlOGK4NspKn54q9DIEtWt8u+kBWalaeAL+D0poToo0mDMcSEifQuMkZlJZTIESgb6AgRM2XP4lzyGNirCUVLTR/VZ1oOyV9Du04+SLqutwC/3+UMC8f69sJ0wKPWYbZtqHtjpCQGVxBu86/09vVn+ml6bOLRZBrjj7R+2Hs3GXV1Hzlr5ym/swLfUcnTe5v91Qc08YsrGg1ZKXbjj8X580r2epZtgo3Q0qYPMPqTveKZQrB3nLkcVRbLfDLq47owsZOSusP/DNDu5W1p8Q5qw89pNbu72JMzELsk1Xt93UwHpZSbXbLY7gFK8zPS6K8h4Uv9gkJWKbqO16ZtsWSpgnDMhiZYWrnhDB5JpqhzW55DLdgl0S/Jh2RWaI2G+xmWFHlAV0Ekg7cIsjtZGHamGZS8HnkMTdhkw4/pvVICDBTIEC+D4t1D7MThr9De7rFmMgemzr79HbY41Iy54kvTcu1r/pxN2HTej/cODutdNhliSWbjxuyRCfC0HbRmiZxDGn/1BkL9WvAF6Cq/YGhv5uwN85+KE3JIEhWtUTuPmxG3mpxTEugYhEGcJ7ycBdlzFoqxsQ1BIuqPL8PY0tTQL0Y6j9Mi79APV7xH5aPV9QDTP9h+QATqFcE/IPtKwJAvYTjD+DA0Us4QL3m5j2OX3PTUEujd3BLoYapMOBl9SNekasaHJbCgJLmHnaygK0woJbH/4/VMijjSBjAJqiyx8EHMTVLMDgcCwNIM9VsGzwQSy51tyImYRq4+0bJRNUeYwcxQ+wiKxhOGZAwGVSSUf7HhokHbZjiXr5u4BcQA8QCMUFsECO56j5Q/lmYwl2UsCFFJv0BRUeTvjErJUsAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,250.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NGetText DisplayName="Get Text 'Best flights'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="320, 712, 1278, 93" FriendlyName="'2:00 PM2:00 PM on Fri, …'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div' idx='2' parentid='yDmH0d' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' aaname='' parentid='yDmH0d' tag='DIV' /&gt;" Guid="1170a15e-234e-4a26-af63-37e31033d93f" ImageBase64="" InformativeScreenshot="6084b21cf64c2431265d72abc20e8dd7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target DesignTimeRectangle="319, 630, 1280, 30" FriendlyName="'Best flights'" FullSelectorArgument="&lt;webctrl tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H3' type='' aaname='Best flights' check:text='Best flights' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NGetText.Target>
+                                        <uix:NGetText.Text>
+                                          <OutArgument x:TypeArguments="x:String">[details]</OutArgument>
+                                        </uix:NGetText.Text>
+                                      </uix:NGetText>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                                <uix:NGetText DisplayName="Get Text '2:00 PM2:00 PM on Fri, …'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="434, 704, 186, 25" FriendlyName="'2:00 PM2:00 PM on Fri, …'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' parentid='yDmH0d' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='yDmH0d' tag='SPAN' /&gt;" Guid="fb63e06a-1a18-4416-976b-fa32bc4e1666" ImageBase64="" InformativeScreenshot="68466d4a86dbe40dbd1e12d9657644b7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector" />
+                                  </uix:NGetText.Target>
+                                  <uix:NGetText.Text>
+                                    <OutArgument x:TypeArguments="x:String">[timeRange]</OutArgument>
+                                  </uix:NGetText.Text>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Get Text 'Saudia'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="434, 732, 362, 20" FriendlyName="'Saudia'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentid='yDmH0d' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' aaname='' parentid='yDmH0d' tag='DIV' /&gt;" Guid="29572184-f4c8-4575-904f-5fd6810c342c" ImageBase64="" InformativeScreenshot="23e37cdd3b865e10ade5736ddaa567ac.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector" />
+                                  </uix:NGetText.Target>
+                                  <uix:NGetText.Text>
+                                    <OutArgument x:TypeArguments="x:String">[flightProvider]</OutArgument>
+                                  </uix:NGetText.Text>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Get Text '37 hr 50 min'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="806, 704, 163, 29" ElementType="Text" FriendlyName="'37 hr 50 min'" FullSelectorArgument="&lt;webctrl parentid='yDmH0d' tag='DIV' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='4' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='yDmH0d' tag='DIV' type='' /&gt;" Guid="2586ccdb-3f27-40d6-9dc6-06bb28361ee7" ImageBase64="" InformativeScreenshot="ff833b33626a63178eb42bc0698857eb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector" />
+                                  </uix:NGetText.Target>
+                                  <uix:NGetText.Text>
+                                    <OutArgument x:TypeArguments="x:String">[timeDuration]</OutArgument>
+                                  </uix:NGetText.Text>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Get Text '1 stop'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" DesignTimeRectangle="969, 704, 53, 29" ElementType="Text" FriendlyName="'1 stop'" FullSelectorArgument="&lt;webctrl parentid='yDmH0d' tag='SPAN' css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' idx='3' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='yDmH0d' tag='SPAN' type='' /&gt;" Guid="b20bd0a0-0621-4a2b-a8a1-3aacf349a56e" ImageBase64="" InformativeScreenshot="51abf1a59c7f4cc0742a075eafbd5e07.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector" />
+                                  </uix:NGetText.Target>
+                                  <uix:NGetText.Text>
+                                    <OutArgument x:TypeArguments="x:String">[stopCount]</OutArgument>
+                                  </uix:NGetText.Text>
+                                </uix:NGetText>
+                                <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;C2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[timeRange]" />
+                                <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;D2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[flightProvider]" />
+                                <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;E2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[timeDuration]" />
+                                <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;F2&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[stopCount]" />
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,250.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NExtractData DataTable="{x:Null}" AppendResults="False" ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='detail'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NExtractData_3" LimitExtractionTo="Rows" MaximumResults="1" ScopeIdentifier="ec7f7c7b-0c36-4151-a521-d6a54460d694" Version="V1">
+                                        <uix:NExtractData.Target>
+                                          <uix:TargetAnchorable DesignTimeRectangle="319, 711, 1280, 488" ElementType="List" FriendlyName="'UL'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;c-wiz&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul' tag='UL' /&gt;" Guid="af8ac200-efbf-4110-ac0e-2392bfb71fd6" InformativeScreenshot="f279621168b72262b67d07a5185edc62.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights' /&gt;" SearchSteps="Selector" />
+                                        </uix:NExtractData.Target>
+                                      </uix:NExtractData>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </ActivityAction>
+                          </uix:NApplicationCard.Body>
+                          <uix:NApplicationCard.TargetApp>
+                            <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAARHSURBVFhHvZddbBRVFMf7YrAq+OSbD6Kgb0qUUh60xq9VtA8k1EJrH1CsGIM+GLUmBA0kFi0WSMCHLcVCTMO2GmjFCiUFpH60sUjMEtIGLaAWama32w92dt2vOf7PndPd3M7sdmobf8k/M/fec8//zJ07s7NFXrEsawlUnclkmqEBaAxKisLS14yYKo6VafMHyR5A4hYoTh5BbAw6iLnLJc3cQZ7bkKQRSttp5w7mpqBdKKRY0noDE+7HxEuSZ94gVxA5l0n6wiDwYUwIyVyN9I0RMls/p4l33qDwi8+R4VtNxjOlFF7no/G3XyfzcBOlR/6UaB3kNHBYITbuyJU7zNOj12ly+/tkPL2KjKdKCgsxkx++p+bMhIvIuxIYuB0BjmWPn+qi0Atl7mYFFCp/nP45e0qy5IAH3w7nnsBAo8RkMY8cck3uVVMN2yWTDrwaxNYGFfGjpu12vnK3pKxIbRVFD+yj+DdHKd51DOf7KfJatRYztbueyLIkmw68UtqtQEeLjCl4s4Wef0xLyBqrWUuJ8/0S5SQx0EfhDeV0c/+n0pMfeDYrc5zfiYb2konufdNhPr7lZbKmpiQiP5YZlbPCwNPEKizm5a+WPoUVG6ZU9yKarLsna86PXGYiIhELB7zX8/I3S1uRuVpPqZ5blMx9d1FozUqKnzwuowsLvP1cwIC0FelffNkCWImjS4lSKRldWODdzwWMSVuR6r1bKyB9sUpG3Hnyo6hnnb2kXwi8DS4gKW1F6vQirYDM79tkxB03o3xq/VGz4gIS/2sBLecSMstmuoCwtBWOWxDcICPuuBnlU3u/YwXULdA34YVntQJGeh+kZGbum/CKkXEUcG7QsQfUJpzxGH6cNT/etZQeDayljuEeGfVOoC/pKGB0Qn81w9vPLyJtm1uxqxTrKab6jkdoZWCdkq/jFQrHxyVidm7GLarYa2rmG/0xGc0B70ouYAkq0Ub39O3Imk+rpvtdmkjM/ipO4iet7khcM2e1Oe+/icMd6vcAjYN2t82NqEFlX73kKKL8683Ue/28RDm5PH6NNnUGYDipmfNqxBKO5W9S5gxWYTk6tB1y4lqvo4BpVXz7FjVeaKH2yyfoy99O0mfBVnq1ZyuVBCrUeOmhOnrik7+yBXw/pH/XwisJz/vE3gadu2Q8yxdDnQ5zrypp3Uhlu392PPsMvHaKbQ7082f4RTskR/cfP+B21LiaFFJpWyUdCHZKlhzw+BWHW8VWB8uyDAH89aoxaoZo6097aFWbvcSzafOZD2gwMiyzcyD33zjcK3buIGCFWxEMb87Dg8doy3c7aE1nLa1ur1RX6uvYRLWnt6m9MBS5ItE6bI4LfEhsCiMrEZS58wa5eNkLX/lMUEQxJjZA//ljAHP5j+tOnLrfcy/IavA/Yn5xeIJjoSbM1R+1+YBki6H1SOyH+iEDSoj4nPv8iKlEDfYbblaKiv4FoeF/NqqvoEMAAAAASUVORK5CYII=" InformativeScreenshot="c3bf68cc0793879fad8c422295526689.png" Selector="&lt;html app='chrome.exe' title='New York to Beijing | Google Flights'/&gt;" Url="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDIzLTEyLTAxag0IAxIJL20vMDJfMjg2cgwIAxIIL20vMDE5MTRAAUgBcAGCAQsI____________AZgBAg" />
+                          </uix:NApplicationCard.TargetApp>
+                        </uix:NApplicationCard>
+                      </Sequence>
+                    </ActivityAction>
+                  </ueab:ExcelForEachRowX.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ueab:ExcelForEachRowX>
+              </Sequence>
+            </ActivityAction>
+          </ueab:ExcelApplicationCard.Body>
+        </ueab:ExcelApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="662.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[&quot;Excel add details failed..&quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
