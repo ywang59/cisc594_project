@@ -6,9 +6,9 @@ This repo is for our HU CISC 594 project code, results, and documentation.
 
 ## Members
 
-Yudong Shi, YShi7@my.harrisburgu.edu
-Le Yang, LYang6@my.harrisburgu.edu
-Yujia Wang, YWang59@my.harrisburgu.edu
+Yudong Shi, YShi7@my.harrisburgu.edu <br>
+Le Yang, LYang6@my.harrisburgu.edu <br>
+Yujia Wang, YWang59@my.harrisburgu.edu <br>
 
 ## Contributing
 
